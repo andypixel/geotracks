@@ -1,7 +1,0 @@
-// local_settings.js template
-// Make a copy of this file and replace values specific to your application
-var local_settings = {
-	oauth: 'XXXXXXXXXXXXXXXX'	// Geoloqi OAuth token
-}
-
-module.exports = local_settings;

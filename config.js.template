@@ -1,0 +1,7 @@
+// config.js template
+// Make a copy of this file and replace values specific to your application
+var config = {
+	oauth: 'XXXXXXXXXXXXXXXX'	// Geoloqi OAuth token, retrieved from https://developers.geoloqi.com/client-libraries/nodejs
+}
+
+module.exports = config;

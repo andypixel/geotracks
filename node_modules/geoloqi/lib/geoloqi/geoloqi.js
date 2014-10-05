@@ -86,8 +86,12 @@ function Session(auth, suppliedConfig) {
 
     var req = https.request(httpOptions, function(res) {
       res.setEncoding('utf-8');
+      var all = [];
       res.on('data', function(data) {
-        callback(data);
+        all.push(data);
+      });
+      res.on('end', function() {
+        callback(all.join(''));
       });
     });
     req.end(postData);
