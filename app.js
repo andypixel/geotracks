@@ -3,11 +3,6 @@ var geoloqi = require('geoloqi');
 var config = require('./config');
 var https = require('https');
 
-var settings = {
-	historyCount: 1000,
-	limitTo: 10
-}
-
 //##TODO pass this in command line, or use private config file
 var session = new geoloqi.Session({'access_token': config.oauth});
 
@@ -19,7 +14,8 @@ var app = {
 		getNextBatch(config.startTimestamp);
 
 		function getNextBatch(ts) {
-			var args = 'count=' + settings.historyCount + '&before=' + ts;
+			var args = 'count=' + config.historyCount;
+			if (ts) args += '&before=' + ts;
 			console.log('args: ' + args)
 			session.get('/location/history?' + args, function(result, err) {
 				if(err) {
@@ -35,7 +31,7 @@ var app = {
 							console.log('success');
 
 							i++;
-							if (i < settings.limitTo) {
+							if (i < config.limitTo) {
 								getNextBatch(lastTimestamp);
 							}
 						}

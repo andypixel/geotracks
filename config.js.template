@@ -1,7 +1,10 @@
 // config.js template
 // Make a copy of this file and replace values specific to your application
 var config = {
-	oauth: 'XXXXXXXXXXXXXXXX'	// Geoloqi OAuth token, retrieved from https://developers.geoloqi.com/client-libraries/nodejs
+	oauth: 'XXXXXXXXXXX',	// Gererate at https://developers.geoloqi.com/client-libraries/nodejs
+	startTimestamp: null,	// Last timestamp fetched by the service, or null if starting from scratch
+	historyCount: 1000,	// How many records to include in each file
+	limitTo: 10	// How many files to save in each batch
 }
 
 module.exports = config;
