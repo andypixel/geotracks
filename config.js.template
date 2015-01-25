@@ -1,10 +1,24 @@
 // config.js template
 // Make a copy of this file and replace values specific to your application
+
+var constants = {
+	OUTPUT: {
+		FILESYSTEM: 1,
+		MONGODB: 2
+	}
+};
+
 var config = {
+	constants: constants,
 	oauth: 'XXXXXXXXXXX',	// Gererate at https://developers.geoloqi.com/client-libraries/nodejs
-	startTimestamp: null,	// Last timestamp fetched by the service, or null if starting from scratch
+	startTimestamp: null,	// Last timestamp fetched by the service (smallest), or null if starting from scratch
 	historyCount: 1000,	// How many records to include in each file
-	limitTo: 10	// How many files to save in each batch
+	limitTo: 10,	// How many files to save in each batch
+	output: constants.OUTPUT.FILESYSTEM, 	// Output type
+	mongodb: {	// Optional; only include if using MongoDB
+		url: 'geotracks',
+		collection: 'points'
+	}
 }
 
 module.exports = config;

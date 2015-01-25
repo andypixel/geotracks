@@ -11,12 +11,7 @@ Usage
 -----
 1. Assure that config.js is accurate
 	- Generate a current `oath` token at https://developers.geoloqi.com/client-libraries/nodejs
-	- If this is the first time you are running the application, `startTimestamp` should be `null`. Otherwise, 
+	- If this is the first time you are running the application, `startTimestamp` should be `null`. Otherwise, `startTimestamp` should be the value of the most recent (smallest) filename in the "output" folder.
 2. In a command prompt, navigate to the project location folder: `cd C:\path\to\project`
 3. Run the application: `> node app`
-4. To run subsequent batches, edit `startTimestamp` to be the value of the most recent filename in the "output" folder.
-
-Current status
---------------
-Successfully pulling chunks in batches and writing to text files; filename is Unix timestamp epoch
-Next implement mongoDB or other versionable data store
+4. To run subsequent batches, edit `startTimestamp` to be the value of the most recent (smallest) filename in the "output" folder.
